@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 杂志专题 · 游戏与生活</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafaf7;
+            font-family: "Georgia", "Noto Serif SC", "Times New Roman", serif;
+            color: #2d2a24;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* ----- hero 横幅 ----- */
+        .hero {
+            margin-bottom: 3rem;
+            padding: 3rem 0 1.5rem 0;
+            border-bottom: 1px solid #e2dbd0;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            color: #1e1b16;
+            line-height: 1.1;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-family: "Avenir Next", "Helvetica Neue", sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #8f897e;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero .intro-sentence {
+            font-size: 1rem;
+            color: #5c554b;
+            max-width: 600px;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* ----- 正文区 ----- */
+        .content {
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #2d2a24;
+            border-left: 3px solid #b8a99a;
+            padding-left: 1rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #35312b;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .pull-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: #4d453c;
+            padding: 1.2rem 1.5rem;
+            margin: 1.8rem 0;
+            background-color: #f3f0ea;
+            border-radius: 4px;
+            border-left: 4px solid #c7b9a8;
+        }
+
+        .inline-link {
+            color: #5d6b5c;
+            text-decoration: underline;
+            text-decoration-color: #c2b5a2;
+            text-underline-offset: 3px;
+            transition: all 0.2s;
+            font-weight: 400;
+        }
+
+        .inline-link:hover {
+            text-decoration-color: #3b4a3a;
+            color: #2a3629;
+        }
+
+        /* ----- FAQ摘要卡片 ----- */
+        .faq-mini {
+            background: #f7f4ef;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 2rem 0 1rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            color: #2d2a24;
+            letter-spacing: 0.02em;
+        }
+
+        .faq-mini p {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini p strong {
+            font-weight: 500;
+            color: #3f3a32;
+        }
+
+        /* ----- 场景清单 ----- */
+        .scene-list {
+            list-style: none;
+            margin: 1.2rem 0;
+        }
+
+        .scene-list li {
+            padding: 0.4rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: baseline;
+            font-size: 0.98rem;
+            border-bottom: 1px dashed #e3ddd4;
+        }
+
+        .scene-list li:last-child {
+            border-bottom: none;
+        }
+
+        .scene-list .label {
+            min-width: 5.5rem;
+            font-family: "Avenir Next", sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.04em;
+            color: #8c8477;
+            text-transform: uppercase;
+        }
+
+        /* ----- 页尾 ----- */
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2dbd0;
+            font-size: 0.9rem;
+            color: #70695e;
+            text-align: left;
+        }
+
+        .footer-note p {
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-note a {
+            color: #3b4a3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .footer-note a:hover {
+            color: #1a2619;
+        }
+
+        /* ----- 响应式 ----- */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .sub {
+                font-size: 0.75rem;
+            }
+
+            .section h2 {
+                font-size: 1.2rem;
+                padding-left: 0.7rem;
+            }
+
+            .pull-quote {
+                font-size: 1rem;
+                padding: 1rem 1.2rem;
+            }
+
+            .faq-mini {
+                padding: 1rem 1.2rem;
+            }
+
+            .scene-list li {
+                flex-direction: column;
+                gap: 0.1rem;
+            }
+
+            .scene-list .label {
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <div class="sub">· 杂志专题 · 游戏与日常</div>
+        <h1>爱游戏，如同爱一段<br>安静的对话</h1>
+        <div class="intro-sentence">
+            一种温和的陪伴，在像素与故事之间，找到自己的节奏。
+        </div>
+    </div>
+
+    <!-- 正文内容 -->
+    <div class="content">
+
+        <!-- 第一段 背景说明 -->
+        <div class="section">
+            <h2>不只是消遣</h2>
+            <p>
+                许多人将游戏视为屏幕前的短暂逃离，但另一种可能同样真实：游戏是叙事、是探索、也是思考的延伸。
+                从早期的文字冒险到今天的独立寓言，每一款用心的作品都像一本可以走入的书。
+                正因如此，<a href="https://home-index-igame.com" class="inline-link">爱游戏</a>这个平台选择了一种朴素的姿态——不追逐喧哗的排行榜，也不制造焦虑的竞技场，而是为那些愿意慢慢体会的人留出一片安静的角落。
+            </p>
+            <p>
+                这里没有必须完成的每日任务，也没有催促你充值的倒计时。你可以只是浏览一篇关于关卡设计的随笔，或者翻看某位开发者写下的创作笔记。
+            </p>
+        </div>
+
+        <!-- 三段自然介绍：以杂志栏目的方式 -->
+        <div class="section">
+            <h2>三个侧面</h2>
+            <p>
+                <strong>其一，是“积存”。</strong> 很多好作品值得反复回味，就像一本旧书或一张老唱片。
+                <a href="https://home-index-igame.com" class="inline-link">爱游戏</a>一直尝试收集那些被时间打磨过的体验——不一定是新作，但一定有温度。
+                从一段像素雨中的独白，到一场策略与诗意并存的棋局，它们构成了一种缓慢的档案。
+            </p>
+            <p>
+                <strong>其二，是“连接”。</strong> 游戏之所以动人，往往是因为它悄悄接通了人与人、人与记忆之间的回路。
+                哪怕只是合作修好一座虚拟的桥，或者在一段音乐里认出彼此喜欢的旋律——这本身就是一种很轻、很真的社交。
+            </p>
+            <p>
+                <strong>其三，是“留白”。</strong> 并非所有体验都需要被成就系统量化。有时候，停下来看看天空盒里云朵的移动轨迹，或者在对话树里选一个毫无功能的选项，反而更像生活本来的样子。
+                这个站点也在提醒：游戏可以是一种呼吸。
+            </p>
+        </div>
+
+        <!-- 引用块 -->
+        <div class="pull-quote">
+            “最好的游戏并不试图填满你的时间，而是让你忘记时间。”
+        </div>
+
+        <!-- 场景清单 (代替特点) -->
+        <div class="section">
+            <h2>一些可能的场景</h2>
+            <ul class="scene-list">
+                <li><span class="label">午后</span> 打开一个慢节奏的建造游戏，听着雨声白噪音，只搭一小段屋檐。</li>
+                <li><span class="label">通勤</span> 读一篇关于游戏叙事的长文，车厢晃动时正好翻到下一页。</li>
+                <li><span class="label">深夜</span> 关掉所有提示音，让一段简单的解谜陪你度过睡前时光。</li>
+                <li><span class="label">周末</span> 和朋友远程同玩一款合作游戏，说很多与游戏无关的话。</li>
+            </ul>
+        </div>
+
+        <!-- FAQ 摘要卡片 -->
+        <div class="faq-mini">
+            <h3>一些常被问起的事</h3>
+            <p><strong>这个平台适合什么样的玩家？</strong> 任何对游戏抱有好奇心但不希望被催促的人。无论你沉迷过多少大作，还是很久没有打开过任何游戏，都可以在这里找到不设限的阅读体验。</p>
+            <p><strong>内容更新频繁吗？</strong> 保持自己的节奏。偶尔有新鲜的随笔、推荐或翻译，但不会用推送轰炸。你可以像翻一本杂志那样，想起来时来看看。</p>
+            <p><strong>是否推荐商业大作？</strong> 关注作品本身的气质多于预算大小。独立小品、经典重访、以及那些容易被忽略的叙事实验，都是常客。</p>
+        </div>
+
+        <!-- 背景回归 简短 -->
+        <div class="section">
+            <h2>一种底色</h2>
+            <p>
+                如果说非要给 <a href="https://home-index-igame.com" class="inline-link">爱游戏</a> 找一个关键词，那大概是“善意的好奇”。
+                不做打分机器，不制造对立，也不把玩家分为三六九等。这里相信每一个游戏爱好者都值得被尊重，每一种温和的表达都值得被听见。
+            </p>
+        </div>
+
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>你正在阅读的是一本关于游戏的线上杂志，它有一个简单的名字：<a href="https://home-index-igame.com">爱游戏</a>。</p>
+        <p>没有自动播放的视频，没有弹窗，没有催促。只有一些安静的文字，和一些关于游戏与生活的诚实记录。</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #9b9287;">—— 随时可以来，也随时可以合上。</p>
+    </div>
+
+</div>
+</body>
+</html>
