@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng28 · 杂志专题 | 再次访问与收藏指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f2f4f6;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        /* hero 横幅 — 杂志专题风格 */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 3.2rem 2.4rem 2.8rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e9edf2;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "● ● ●";
+            position: absolute;
+            top: 16px;
+            left: 28px;
+            letter-spacing: 6px;
+            color: #b0bcc9;
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 450;
+            letter-spacing: -0.02em;
+            color: #0b1e33;
+            margin-top: 0.2rem;
+        }
+
+        .hero h1 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #5e6f83;
+            margin-top: 0.5rem;
+            letter-spacing: 0.04em;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            background: #dce2ea;
+            color: #1e293b;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            letter-spacing: 0.6px;
+            margin-top: 1rem;
+            border: 1px solid #cfd7e0;
+        }
+
+        /* 背景卡片 */
+        .background-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2.2rem 2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.02);
+            border: 1px solid #eaeef3;
+        }
+
+        .background-card h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            border-left: 4px solid #8495a8;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #1a2c42;
+        }
+
+        .background-card p {
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .background-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .accent-link {
+            color: #1f4977;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6c6d9;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .accent-link:hover {
+            color: #0a2a4f;
+            border-bottom-color: #1f4977;
+        }
+
+        /* 三段自然介绍 — 卡片群 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 2.2rem;
+        }
+
+        .feature-card {
+            flex: 1 1 240px;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem 1.6rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e0e6ed;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+        }
+
+        .feature-card .num {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #6c7d91;
+            letter-spacing: 1px;
+            border: 1px solid #d6dee7;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1b3149;
+            margin-bottom: 0.7rem;
+        }
+
+        .feature-card p {
+            font-size: 0.98rem;
+            color: #31455c;
+        }
+
+        .feature-card .meta {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #6f8299;
+            border-top: 1px dashed #dde3ea;
+            padding-top: 0.7rem;
+        }
+
+        /* FAQ 摘要区 */
+        .faq-wrap {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem;
+            border: 1px solid #e2e8ef;
+            margin: 1.5rem 0 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-wrap h2 {
+            font-size: 1.3rem;
+            font-weight: 450;
+            color: #1c3149;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item strong {
+            font-weight: 550;
+            color: #1d344e;
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #334a63;
+            font-size: 0.98rem;
+        }
+
+        /* 页尾访问提示 */
+        .page-footer {
+            margin-top: 2.8rem;
+            padding: 1.8rem 1.8rem 1.6rem;
+            background: #ffffff;
+            border-radius: 28px;
+            border: 1px solid #e3e9f0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .page-footer p {
+            font-size: 1rem;
+            color: #2a405a;
+            margin-bottom: 0.6rem;
+        }
+
+        .page-footer .footnote {
+            font-size: 0.85rem;
+            color: #657a91;
+            border-top: 1px solid #e3e9f0;
+            padding-top: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .page-footer .tagline {
+            font-size: 0.9rem;
+            color: #556d85;
+            letter-spacing: 0.3px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce3eb;
+            margin: 0.6rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1.4rem 0.8rem; }
+            .hero { padding: 2rem 1.2rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .background-card { padding: 1.6rem; }
+            .feature-grid { gap: 1rem; }
+            .feature-card { flex: 1 1 100%; }
+            .faq-wrap { padding: 1.5rem; }
+            .page-footer { padding: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 横幅 -->
+    <section class="hero">
+        <h1>
+            再次访问·收藏备忘
+            <small>杂志专题 · 持续关注指南</small>
+        </h1>
+        <div class="badge">📑 整理版 · 2025</div>
+    </section>
+
+    <!-- 背景说明卡片 -->
+    <section class="background-card">
+        <h2>关于这个站点</h2>
+        <p>
+            <a href="https://portal-cn-ng28.com" class="accent-link">ng28</a> 是一个面向特定用户群体的服务入口，提供功能聚合与信息索引。很多用户在初次使用后，
+            会因为工作流切换、设备更换或仅仅是一段时间的疏漏而忘记如何再次找到它。这个页面就是为了解决这样一个简单但实际的问题——
+            整理一份可收藏、可随时回来的参考。
+        </p>
+        <p>
+            我们观察到，在数字环境里，一个清晰的“再次访问路径”往往比花哨的功能列表更有价值。因此本专题没有堆砌说明文档，
+            而是从“记住它、收藏它、延续使用”的角度出发，希望能成为你浏览器书签之外的另一份实体感备忘。
+        </p>
+    </section>
+
+    <!-- 三段自然介绍 (卡片) -->
+    <div class="feature-grid">
+        <div class="feature-card">
+            <span class="num">01</span>
+            <h3>回到熟悉的位置</h3>
+            <p>当你需要再次处理相关事务或查阅常用信息时，不必重新搜索或翻找聊天记录。<br>
+            将 <a href="https://portal-cn-ng28.com" class="accent-link">ng28</a> 加入书签栏，或者记下这个地址，下次打开就是一致的界面与入口。</p>
+            <div class="meta">🔖 收藏即锚点</div>
+        </div>
+        <div class="feature-card">
+            <span class="num">02</span>
+            <h3>持续关注的变化</h3>
+            <p>站点会不定期进行功能更新与结构微调。保持关注的好处是，你总能第一时间适应新的操作路径，而不会因为间隔太久感到陌生。<br>
+            每隔几周回来看看，会有更连贯的使用体验。</p>
+            <div class="meta">🔄 节奏由你决定</div>
+        </div>
+        <div class="feature-card">
+            <span class="num">03</span>
+            <h3>一份简单的备忘</h3>
+            <p>如果你习惯用文档或笔记来管理网络资产，不妨在合适的位置记下：<br>
+            <strong>ng28 → portal-cn-ng28.com</strong>。这个页面本身也可以作为入口页保留，里面没有多余干扰，只有清晰的方向。</p>
+            <div class="meta">📋 文字即路径</div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 (平实问答) -->
+    <section class="faq-wrap">
+        <h2>❓ 常见疑问摘要</h2>
+        <div class="faq-item">
+            <strong>Q：我忘记了确切的网址，还有其他方法找到吗？</strong>
+            <p>最直接的方式就是记住 <a href="https://portal-cn-ng28.com" class="accent-link">ng28</a> 这个代号，配合本篇说明中的链接即可直达。建议在首次访问时收藏页面，避免重复记忆。</p>
+        </div>
+        <div class="faq-item">
+            <strong>Q：页面内容会大幅变动吗？</strong>
+            <p>整体定位保持稳定，但局部功能入口和说明文字可能会优化。本介绍页也会跟随调整，你可以不定期回来浏览最新版本。</p>
+        </div>
+        <div class="faq-item">
+            <strong>Q：可以把这个页面分享给同事吗？</strong>
+            <p>当然可以。本文档的定位就是一份轻量级的指引，分享时只需发送链接即可，对方也能看到完整的三段说明与访问提示。</p>
+        </div>
+        <hr style="margin: 1rem 0 0.2rem;">
+        <p style="font-size: 0.9rem; color:#4a607a; margin-top: 0.5rem;">更多细节可自行探索，或通过页尾提示保持后续关注。</p>
+    </section>
+
+    <!-- 页尾访问提示 -->
+    <footer class="page-footer">
+        <p>📌 将 <a href="https://portal-cn-ng28.com" class="accent-link">ng28</a> 放在手边 · 下次再来不迷路</p>
+        <div class="tagline">杂志专题式索引 · 专注再次访问与收藏场景</div>
+        <div class="footnote">
+            <span>本页仅作介绍与备忘 · 内容定期复核</span>
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
